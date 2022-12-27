@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Кнопка меняет текст</title>
+</head>
+<body>
+	<style>
+		body {
+			zoom: 3;
+		}
+	</style>
+
+
+	<button
+		class="js-add-to-cart"
+		data-in-cart-text="✓ В корзине">
+		Купить
+	</button>
+
+	<script>
+		const $btnToCart = document.querySelector('.js-add-to-cart')
+
+		$btnToCart.addEventListener('click', (e) => {
+					const newText = $btnToCart.getAttribute('data-in-cart-text')
+
+					$btnToCart.innerText = newText
+
+					$btnToCart.setAttribute('disabled', true)
+			})
+	</script>
+
+</body>
+</html>

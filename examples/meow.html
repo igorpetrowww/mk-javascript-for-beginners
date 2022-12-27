@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Мяу!</title>
+</head>
+<body>
+
+	<style>
+		img {
+			display: block;
+		}
+
+		.btnMeow {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 33vw;
+			height: 33vw;
+			max-width: 768px;
+			background: none;
+			border: none;
+		}
+
+		.btnMeow img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: bottom left;
+		}
+
+		.btnMeow .btnMeow__active {
+			display: none;
+			left: 5%;
+		}
+
+		.btnMeow:active .btnMeow__active {
+			display: block;
+		}
+</style>
+
+	<button class="js-btn-meow btnMeow" aria-label="Мяукнуть">
+		<img src="./cat.png">
+		<img class="btnMeow__active"src="./cat-meow.png">
+	</button>
+
+	<script>
+		// От места определения пременной может сильно отличаться поведение кода. Попробуйте перенести определение переменной внутрь обработчика и сравните поведение при множественных кликах по коту.
+		let meowAudio = new Audio('./meow.wav');
+
+		// Сейчас мы создаём одну переменную и глушим-переиспользуем её при клике. А если поместим переменную внутрь обработчика — будем создавать новый звук для каждого клика
+
+		let $btnMeow = document.querySelector('.js-btn-meow')
+
+		$btnMeow.addEventListener('click', () => {
+			meowAudio.currentTime = 0;
+			meowAudio.play();
+		})
+	</script>
+
+</body>
+</html>

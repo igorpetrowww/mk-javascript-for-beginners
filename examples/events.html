@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>События и обработчики</title>
+</head>
+<body>
+
+	<button class="js-button" type="button">Click me!</button>
+
+	<input class="js-input" type="text">
+
+	<script>
+		let $button = document.querySelector('.js-button')
+
+		$button.addEventListener('click', (event) => {
+				console.log(event)
+				console.log(event.target)
+		})
+
+		let $input = document.querySelector('.js-input')
+
+		// Аргумент event придёт в обработчик всегда, но когда он нам не нужен, можно не указывать его в аргументах
+		$input.addEventListener('focus', () => {
+			console.log('focus')
+		})
+
+		$input.addEventListener('blur', () => {
+			console.log('blur')
+		})
+
+		$input.addEventListener('input', (event) => {
+			console.log(event.target.value)
+		})
+
+		window.addEventListener('resize', () => {
+			console.group('resize')
+				console.log(window.innerWidth)
+				console.log(window.innerHeight)
+			console.groupEnd()
+		})
+
+		document.addEventListener('mousemove', (event) => {
+			console.log('mousemove', event.pageX, event.pageY)
+		})
+
+		// Обработчик можно вынести в отдельную функцию
+		let handlePageLoad = (event) => {
+			console.log('page loaded', event)
+		}
+
+		document.addEventListener('DOMContentLoaded', handlePageLoad)
+	</script>
+
+</body>
+</html>

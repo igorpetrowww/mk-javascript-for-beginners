@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ex. script</title>
+
+	<!-- В консоли видно и ошибки подключения любых ассетов. Например, если  файл стилей с таким именем не найден  -->
+	<link rel="stylesheet" href="./mystyle.css">
+</head>
+<body>
+
+	<!-- Ошибка в адресе картинки. В консоли будет видна ошибка 404  -->
+	<img src="https://bureau.ru/filesrocket.png" alt="">
+
+	<script>
+		// Записываем строку в переменную
+		let username = 'Иван Петров'
+
+		// Пишем в консоль произвольную строку
+		console.log('name:')
+
+		// Пишем в консоль переменную
+		console.log(username)
+
+		// Заведомо несуществующая функция для строки. Выкинет ошибку в консоль.
+		username.forEach()
+	</script>
+
+</body>
+</html>

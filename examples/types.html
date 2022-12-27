@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Устройство кода</title>
+</head>
+<body>
+
+	<script>
+		// Переменные хранят данные.
+		// Пишутся как «let название = значение»
+		let username = 'Андрей Петров'
+
+		let requiredMinAge = 18
+
+		let canRead = true
+
+		let availableFileExts = ['png', 'svg']
+
+		// Самая интересная переменная — объект
+		let car = {
+			brand: 'Москвич',
+			model: 'v3',
+			transmission: 'AT',
+			driveType: 'AWD',
+			engines: [
+				{ size: '1.6', hp: '109' },
+				{ size: '1.6', hp: '150', turbo: true },
+			],
+		}
+
+		// Свойства объекта доступны через точку, элементы массива — по индексу:
+		console.log(car.brand)
+		console.log(car.engines[0])
+
+		// На самом деле, все переменные — объект. У каждого типа есть набор стандартных свойств. Например, свойство «длина» у строк и массивов:
+		console.log('username symbol count:', username.length)
+		console.log('array length:', availableFileExts.length)
+
+		// У объектов бывают методы — функции.
+		// Например, «пройтись по всем элементам массива»:
+		availableFileExts.forEach((ext) => {
+			console.log(ext)
+		})
+
+		// Есть и просто функции
+		// Собственные:
+		let sayMyName = (name = 'Константин Константинопольский') => {
+			console.log(name)
+		}
+
+		// И встроенные в язык:
+		let rounded = Math.round(3.14)
+		console.log(rounded)
+
+		// Можно выполнять блоки кода только при соответствии условий
+		if (canRead) {
+			// …
+		}
+
+		if (car.brand === 'Москвич') {
+			console.log('Отличный выбор!')
+		}
+	</script>
+
+</body>
+</html>

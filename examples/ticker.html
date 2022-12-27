@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BTC to USD</title>
+</head>
+<body>
+	<style>
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			zoom: 3;
+		}
+	</style>
+
+
+	<p>1 BTC = <span class="js-ticker">…</span></p>
+
+
+	<script>
+		// const — переменная без возможности перезаписи
+		const API_ENDPOINT = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD'
+
+		let $ticker = document.querySelector('.js-ticker')
+		let interval = null
+
+		let updTicker = () => {
+			console.log('upd ticker…')
+
+			fetch(API_ENDPOINT)
+				.then(response => response.json())
+				.then(response => {
+					console.log(response)
+
+					$ticker.innerText = `${response.BTC.USD} USD`
+					setTimeout(updTicker, 1000)
+				})
+		}
+
+		updTicker()
+	</script>
+
+</body>
+</html>
